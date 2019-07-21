@@ -5,9 +5,9 @@ namespace BBC_Testing_Framework
 {
     class NewsPage
     {
-        public static string MainHeader = "Suspected arson at Japan anime studio kills 26";
-        public static string SecondaryHeader = "Time running out for missile treaty - Nato head";
-        public static string TagName = "Europe";
+        public static string MainHeader = "UK political storm over seized tanker";
+        public static string SecondaryHeader = "Wildfires sweep through central Portugal";
+        public static string TagName = "UK";
 
         public NewsPage()
         {
@@ -16,10 +16,11 @@ namespace BBC_Testing_Framework
 
         //TODO Check asterisks!
         //Practice #1
-        [FindsBy(How = How.XPath, Using = "//h3[text()=\"Suspected arson at Japan anime studio kills 26\"]")]
-        private IWebElement TopNews { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//h3[text()=\"Time running out for missile treaty - Nato head\"]")]
-        private IWebElement SecondaryNews { get; set; }
+        [FindsBy(How = How.XPath, Using = "//h3[text()=\"UK political storm over seized tanker\"]")]
+        public IWebElement TopNewsHeader { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//h3[text()=\"Wildfires sweep through central Portugal\"]")]
+        public IWebElement SecondaryNewsHeader { get; set; }
     }
 }

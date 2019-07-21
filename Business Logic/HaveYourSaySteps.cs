@@ -2,5 +2,9 @@
 {
     class HaveYourSaySteps
     {
+        public HaveYourSaySteps()
+        {
+
+        }
     }
 }

@@ -2,5 +2,8 @@
 {
     class LoremIpsumTextGeneration
     {
+        public LoremIpsumTextGeneration()
+        {
+        }
     }
 }

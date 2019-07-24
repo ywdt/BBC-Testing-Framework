@@ -5,7 +5,6 @@ namespace BBC_Testing_Framework
 {
     class SearchResultsPage
     {
-
         public SearchResultsPage()
         {
             PageFactory.InitElements(WebDriver.Driver, this);

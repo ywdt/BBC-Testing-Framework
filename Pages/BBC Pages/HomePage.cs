@@ -5,7 +5,7 @@ namespace BBC_Testing_Framework
 {
     class HomePage
     {
-        public const string HomePageURL = "https://bbc.com";
+        public const string HomePageURL = "https://bbc.com/news";
 
         public HomePage()
         {

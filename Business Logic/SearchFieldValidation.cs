@@ -6,7 +6,8 @@ namespace BBC_Testing_Framework.Business_Logic
     {
         public SearchFieldValidation()
         {
-            WebDriver.IntializeDriver();
+            WebDriver.InitializeChromeDriver();
+            WebDriver.IntializeBBCDriver();
         }
 
         public void SearchField()
@@ -24,7 +25,7 @@ namespace BBC_Testing_Framework.Business_Logic
         }
 
         [OneTimeTearDown]
-        public void DriverQuit()
+        public void BBCDriverQuit()
         {
             WebDriver.DriverQuit();
         }

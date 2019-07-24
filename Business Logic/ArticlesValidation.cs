@@ -6,19 +6,18 @@ namespace BBC_Testing_Framework.Business_Logic
     {
         public ArticlesValidation()
         {
-            WebDriver.IntializeDriver();
+            WebDriver.InitializeChromeDriver();
+            WebDriver.IntializeBBCDriver();
         }
 
-        public void MainArticle()
+        public static void MainArticle()
         {
-            //WebDriver.IntializeDriver();
             NewsPage mainHeader = new NewsPage();
             Assert.AreEqual(NewsPage.MainHeader, mainHeader.TopNewsHeader.Text);
         }
 
-        public void SecondaryArticle()
+        public static void SecondaryArticle()
         {
-            //WebDriver.IntializeDriver();
             NewsPage secondaryHeader = new NewsPage();
             Assert.AreEqual(NewsPage.SecondaryHeader, secondaryHeader.SecondaryNewsHeader.Text);
         }
@@ -30,7 +29,7 @@ namespace BBC_Testing_Framework.Business_Logic
             SecondaryArticle();
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void DriverQuit()
         {
             WebDriver.DriverQuit();

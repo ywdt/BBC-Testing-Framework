@@ -13,10 +13,7 @@ namespace BBC_Testing_Framework
         {
             PageFactory.InitElements(WebDriver.Driver, this);
         }
-
         //TODO Check asterisks!
-        //Practice #1
-
         [FindsBy(How = How.XPath, Using = "//h3[text()=\"UK political storm over seized tanker\"]")]
         public IWebElement TopNewsHeader { get; set; }
 

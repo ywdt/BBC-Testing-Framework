@@ -4,6 +4,9 @@
     {
         public LoremIpsumTextGeneration()
         {
+            WebDriver.IntializeBBCDriver();
         }
+
+
     }
 }

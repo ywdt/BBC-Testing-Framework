@@ -6,7 +6,7 @@ namespace BBC_Testing_Framework.Business_Logic
     {
         public SearchFieldValidation()
         {
-            WebDriver.IntializeDriver();
+            WebDriver.IntializeBBCDriver();
         }
 
         public void SearchField()

@@ -2,15 +2,22 @@
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace BBC_Testing_Framework.Pages.BBC_Pages
 {
     class HaveYourSayPage
     {
-        public string firstName = "John Brick";
-        public string email = "john@john.com";
-        public string age = "30";
-        public string postcode = "010203";
+        public Dictionary<string, string> InputValues = new Dictionary<string, string>()
+        {
+            ["FirstName"] = "JohnBrick",
+            ["Email"] = "john@john.com",
+            ["Age"] = "30",
+            ["Postcode"] = "010203",
+            ["EmptyNameError"] = "Name can't be blank",
+            ["EmptyEmailError"] = "Email address can't be blank"
+        };
 
         public HaveYourSayPage()
         {
@@ -65,60 +72,67 @@ namespace BBC_Testing_Framework.Pages.BBC_Pages
             QuestionLink.Click();
         }
 
-        public void ValidInputValue()
+        public void ScreenshotAndInputValidation(bool ValidInput)
         {
-            LipsumHomePage valid = new LipsumHomePage();
-            string validInput = valid.GenerateValidIpsum(true);
-            NavigateToTextForm();
+            if (ValidInput == true)
+            {
+                LipsumHomePage ipsum = new LipsumHomePage();
+                string validInput = ipsum.GenerateValidIpsum(true);
+                NavigateToTextForm();
 
-            MessageInputBox.SendKeys(validInput);
-            NameInputField.SendKeys(firstName);
-            EmailInputField.SendKeys(email);
-            AgeInputField.SendKeys(age);
-            PostCodeInputField.SendKeys(postcode);
-            CheckBoxDailyMails.Click();
-            Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
-            inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\validInputBoxScreenshot.png", ScreenshotImageFormat.Png);
+                MessageInputBox.SendKeys(validInput);
+                NameInputField.SendKeys(InputValues["FirstName"]);
+                EmailInputField.SendKeys(InputValues["Email"]);
+                AgeInputField.SendKeys(InputValues["Age"]);
+                PostCodeInputField.SendKeys(InputValues["Postcode"]);
+                CheckBoxDailyMails.Click();
+                Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
+                inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\validInputBoxScreenshot.png", ScreenshotImageFormat.Png);
+                Thread.Sleep(6000);
+            }
+            else
+            {
+                LipsumHomePage ipsum = new LipsumHomePage();
+                string invalidInput = ipsum.GenerateValidIpsum(false);
+                NavigateToTextForm();
 
+                MessageInputBox.SendKeys(invalidInput);
+                NameInputField.SendKeys(InputValues["FirstName"]);
+                EmailInputField.SendKeys(InputValues["Email"]);
+                AgeInputField.SendKeys(InputValues["Age"]);
+                PostCodeInputField.SendKeys(InputValues["Postcode"]);
+                CheckBoxDailyMails.Click();
+
+                Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
+                inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\invalidInputBoxScreenshot.png", ScreenshotImageFormat.Png);
+                Thread.Sleep(6000);
+            }
         }
 
-        public void InvalidInputValue()
+        public void EmptyNameAndEmailField(bool emptyNameField)
         {
-            LipsumHomePage invalid = new LipsumHomePage();
-            string invalidInput = invalid.GenerateValidIpsum(false);
-            NavigateToTextForm();
+            if (emptyNameField == true)
+            {
+                NavigateToTextForm();
 
-            MessageInputBox.SendKeys(invalidInput);
-            NameInputField.SendKeys(firstName);
-            EmailInputField.SendKeys(email);
-            AgeInputField.SendKeys(age);
-            PostCodeInputField.SendKeys(postcode);
-            CheckBoxDailyMails.Click();
+                EmailInputField.SendKeys(InputValues["Email"]);
+                AgeInputField.SendKeys(InputValues["Age"]);
+                PostCodeInputField.SendKeys(InputValues["Postcode"]);
+                CheckBoxDailyMails.Click();
+                SubmitButton.Click();
+                Thread.Sleep(6000);
+            }
+            else
+            {
+                NavigateToTextForm();
 
-            Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
-            inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\invalidInputBoxScreenshot.png", ScreenshotImageFormat.Png);
-        }
-
-        public void EmptyNameField()
-        {
-            NavigateToTextForm();
-
-            EmailInputField.SendKeys(email);
-            AgeInputField.SendKeys(age);
-            PostCodeInputField.SendKeys(postcode);
-            CheckBoxDailyMails.Click();
-            SubmitButton.Click();
-        }
-
-        public void EmptyEmailField()
-        {
-            NavigateToTextForm();
-
-            NameInputField.SendKeys(firstName);
-            AgeInputField.SendKeys(age);
-            PostCodeInputField.SendKeys(postcode);
-            CheckBoxDailyMails.Click();
-            SubmitButton.Click();
+                NameInputField.SendKeys(InputValues["FirstName"]);
+                AgeInputField.SendKeys(InputValues["Age"]);
+                PostCodeInputField.SendKeys(InputValues["Postcode"]);
+                CheckBoxDailyMails.Click();
+                SubmitButton.Click();
+                Thread.Sleep(6000);
+            }
         }
     }
 }

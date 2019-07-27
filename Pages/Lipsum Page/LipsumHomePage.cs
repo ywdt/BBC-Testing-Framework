@@ -14,18 +14,18 @@ namespace BBC_Testing_Framework
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"bytes\"]")]
-        private IWebElement BytesButton { get; set; }
+        public IWebElement BytesButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"amount\"]")]
-        private IWebElement AmountField { get; set; }
+        public IWebElement AmountField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"generate\"]")]
-        private IWebElement GenerateButton { get; set; }
+        public IWebElement GenerateButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"lipsum\"]")]
-        private IWebElement GeneratedIpsum { get; set; }
+        public IWebElement GeneratedIpsum { get; set; }
 
-        public string GenerateValidIpsum(bool validInput)
+        public void GenerateIpsumSteps()
         {
             WebDriver.IntializeIpsumDriver();
             LipsumHomePage generateIpsum = new LipsumHomePage();
@@ -34,16 +34,27 @@ namespace BBC_Testing_Framework
             generateIpsum.AmountField.Clear();
             generateIpsum.AmountField.SendKeys(InputBytes);
             generateIpsum.GenerateButton.Click();
-            if (validInput == true)
-            {
-                string validData = generateIpsum.GeneratedIpsum.Text.Substring(0, 140);
-                return validData;
-            }
-            else
-            {
-                string invalidData = generateIpsum.GeneratedIpsum.Text.Substring(0, 141);
-                return invalidData;
-            }
         }
+
+        //public string GenerateValidIpsum(bool validInput)
+        //{
+        //    WebDriver.IntializeIpsumDriver();
+        //    LipsumHomePage generateIpsum = new LipsumHomePage();
+
+        //    generateIpsum.BytesButton.Click();
+        //    generateIpsum.AmountField.Clear();
+        //    generateIpsum.AmountField.SendKeys(InputBytes);
+        //    generateIpsum.GenerateButton.Click();
+        //    if (validInput == true)
+        //    {
+        //        string validData = generateIpsum.GeneratedIpsum.Text.Substring(0, 140);
+        //        return validData;
+        //    }
+        //    else
+        //    {
+        //        string invalidData = generateIpsum.GeneratedIpsum.Text.Substring(0, 141);
+        //        return invalidData;
+        //    }
+        //}
     }
 }

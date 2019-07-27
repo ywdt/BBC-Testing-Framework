@@ -89,10 +89,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business Logic\HaveYourSayScenarios\Screenshots\InvalidInput.cs" />
-    <Compile Include="Business Logic\HaveYourSayScenarios\Screenshots\ValidInput.cs" />
-    <Compile Include="Business Logic\HaveYourSayScenarios\Submit\EmptyEmailField.cs" />
-    <Compile Include="Business Logic\HaveYourSayScenarios\Submit\EmptyNameField.cs" />
+    <Compile Include="Business Logic\HaveYourSayScenarios\Screenshots\MessageBox.cs" />
+    <Compile Include="Business Logic\HaveYourSayScenarios\Submit\InputFields.cs" />
     <Compile Include="Business Logic\NewsPageScenarios\PresenceOfTheArticles.cs" />
     <Compile Include="Business Logic\SearchResultsScenarios\InputTagFromTheDictValidatePresence.cs" />
     <Compile Include="Business Logic\SearchResultsScenarios\TagSelectionAndSearchResults.cs" />

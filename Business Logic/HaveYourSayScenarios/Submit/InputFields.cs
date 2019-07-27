@@ -3,9 +3,9 @@ using NUnit.Framework;
 
 namespace BBC_Testing_Framework.Business_Logic.HaveYourSayScenarios.Submit
 {
-    class EmptyEmailField
+    class InputFields
     {
-        public EmptyEmailField()
+        public InputFields()
         {
         }
 
@@ -21,6 +21,14 @@ namespace BBC_Testing_Framework.Business_Logic.HaveYourSayScenarios.Submit
             HaveYourSayPage validation = new HaveYourSayPage();
             validation.EmptyNameAndEmailField(false);
             Assert.AreEqual(validation.InputValues["EmptyEmailError"], validation.BlankEmailErrorMessage.Text);
+        }
+
+        [Test]
+        public void EmptyName()
+        {
+            HaveYourSayPage validation = new HaveYourSayPage();
+            validation.EmptyNameAndEmailField(true);
+            Assert.AreEqual(validation.InputValues["EmptyNameError"], validation.BlankNameErrorMessage.Text);
         }
 
         [TearDown]

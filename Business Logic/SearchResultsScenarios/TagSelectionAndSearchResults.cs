@@ -15,7 +15,6 @@ namespace BBC_Testing_Framework.Business_Logic.SearchResultsScenarios
             WebDriver.IntializeBBCDriver();
         }
 
-
         [Test]
         public void TagSelectionAndSearchValidation()
         {

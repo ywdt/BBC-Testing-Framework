@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using SeleniumExtras.WaitHelpers;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -64,75 +62,76 @@ namespace BBC_Testing_Framework.Pages.BBC_Pages
         public void NavigateToTextForm()
         {
             WebDriver.IntializeBBCDriver();
-            OpenQA.Selenium.Support.UI.WebDriverWait wait = new OpenQA.Selenium.Support.UI.WebDriverWait(WebDriver.Driver, TimeSpan.FromSeconds(30));
 
             MoreButton.Click();
             HaveYourSayLink.Click();
-            wait.Until(ExpectedConditions.ElementToBeClickable(QuestionLink));
             QuestionLink.Click();
+        }
+
+        public void NameEmailAgePostCheckboxInputFields(bool validInput)
+        {
+            NameInputField.SendKeys(InputValues["FirstName"]);
+            EmailInputField.SendKeys(InputValues["Email"]);
+            AgeInputField.SendKeys(InputValues["Age"]);
+            PostCodeInputField.SendKeys(InputValues["Postcode"]);
+            CheckBoxDailyMails.Click();
+
+            if (validInput == true)
+            {
+                Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
+                inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\validInputBoxScreenshot.png", ScreenshotImageFormat.Png);
+            }
+            else
+            {
+                Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
+                inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\invalidInputBoxScreenshot.png", ScreenshotImageFormat.Png);
+            }
+        }
+
+        public void AgePostCheckboxSumbit()
+        {
+            AgeInputField.SendKeys(InputValues["Age"]);
+            PostCodeInputField.SendKeys(InputValues["Postcode"]);
+            CheckBoxDailyMails.Click();
+            SubmitButton.Click();
+            Thread.Sleep(1000);
         }
 
         public void ScreenshotAndInputValidation(bool ValidInput)
         {
+            LipsumHomePage ipsum = new LipsumHomePage();
+
+            ipsum.GenerateIpsumSteps();
+            string generatedIpsum = ipsum.GeneratedIpsum.Text;
+            NavigateToTextForm();
+
             if (ValidInput == true)
             {
-                LipsumHomePage ipsum = new LipsumHomePage();
-                string validInput = ipsum.GenerateValidIpsum(true);
-                NavigateToTextForm();
-
-                MessageInputBox.SendKeys(validInput);
-                NameInputField.SendKeys(InputValues["FirstName"]);
-                EmailInputField.SendKeys(InputValues["Email"]);
-                AgeInputField.SendKeys(InputValues["Age"]);
-                PostCodeInputField.SendKeys(InputValues["Postcode"]);
-                CheckBoxDailyMails.Click();
-                Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
-                inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\validInputBoxScreenshot.png", ScreenshotImageFormat.Png);
-                Thread.Sleep(6000);
+                generatedIpsum.Substring(0, 140);
+                MessageInputBox.SendKeys(generatedIpsum);
+                NameEmailAgePostCheckboxInputFields(true);
             }
             else
             {
-                LipsumHomePage ipsum = new LipsumHomePage();
-                string invalidInput = ipsum.GenerateValidIpsum(false);
-                NavigateToTextForm();
-
-                MessageInputBox.SendKeys(invalidInput);
-                NameInputField.SendKeys(InputValues["FirstName"]);
-                EmailInputField.SendKeys(InputValues["Email"]);
-                AgeInputField.SendKeys(InputValues["Age"]);
-                PostCodeInputField.SendKeys(InputValues["Postcode"]);
-                CheckBoxDailyMails.Click();
-
-                Screenshot inputBoxScreenshot = ((ITakesScreenshot)WebDriver.Driver).GetScreenshot();
-                inputBoxScreenshot.SaveAsFile(@"C:\Users\mayks\Desktop\Screenshots\invalidInputBoxScreenshot.png", ScreenshotImageFormat.Png);
-                Thread.Sleep(6000);
-            }
+                MessageInputBox.SendKeys(generatedIpsum);
+                NameEmailAgePostCheckboxInputFields(false);
+            };
         }
 
         public void EmptyNameAndEmailField(bool emptyNameField)
         {
+            NavigateToTextForm();
             if (emptyNameField == true)
             {
-                NavigateToTextForm();
-
                 EmailInputField.SendKeys(InputValues["Email"]);
-                AgeInputField.SendKeys(InputValues["Age"]);
-                PostCodeInputField.SendKeys(InputValues["Postcode"]);
-                CheckBoxDailyMails.Click();
-                SubmitButton.Click();
-                Thread.Sleep(6000);
+                AgePostCheckboxSumbit();
             }
             else
             {
-                NavigateToTextForm();
-
                 NameInputField.SendKeys(InputValues["FirstName"]);
-                AgeInputField.SendKeys(InputValues["Age"]);
-                PostCodeInputField.SendKeys(InputValues["Postcode"]);
-                CheckBoxDailyMails.Click();
-                SubmitButton.Click();
-                Thread.Sleep(6000);
+                AgePostCheckboxSumbit();
             }
+            Thread.Sleep(3000);
         }
     }
 }

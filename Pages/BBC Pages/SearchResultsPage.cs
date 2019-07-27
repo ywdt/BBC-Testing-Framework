@@ -12,7 +12,8 @@ namespace BBC_Testing_Framework
             ["UK"] = "UK News",
             ["Europe"] = "Europe",
             ["US & Canada"] = "US & Canada",
-            ["Asia"] = "Asia"
+            ["Asia"] = "Asia",
+            ["China"] = "China"
         };
 
         public SearchResultsPage()
@@ -22,30 +23,5 @@ namespace BBC_Testing_Framework
 
         [FindsBy(How = How.XPath, Using = "//*[@class=\"editors-choice results\"]//h1")]
         public IWebElement FirstSearchResult { get; set; }
-
-        public string TagNameAssertion(NewsPage tag)
-        {
-            tag = new NewsPage();
-            string tempValue = tag.ReturnTagName();
-            string searchResultArticleName;
-            //NewsPage getTagValue = new NewsPage();
-
-            //getTagValue.InsertTagIntoSearchField();
-
-            if (tempValue == "UK Politics")
-                return searchResultArticleName = TagAndSearchResultsPairs["UK Politics"];
-
-            else if (tempValue == "UK")
-                return searchResultArticleName = TagAndSearchResultsPairs["UK"];
-
-            else if (tempValue == "Europe")
-                return searchResultArticleName = TagAndSearchResultsPairs["Europe"];
-
-            else if (tempValue == "US & Canada")
-                return searchResultArticleName = TagAndSearchResultsPairs["US & Canada"];
-
-            else
-                return searchResultArticleName = TagAndSearchResultsPairs["Asia"];
-        }
     }
 }

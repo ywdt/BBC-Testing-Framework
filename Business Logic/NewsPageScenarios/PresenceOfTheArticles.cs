@@ -6,6 +6,11 @@ namespace BBC_Testing_Framework.Business_Logic.NewsPageScenarios
     {
         public PresenceOfTheArticles()
         {
+        }
+
+        [SetUp]
+        public void Setup()
+        {
             WebDriver.InitializeChromeDriver();
             WebDriver.IntializeBBCDriver();
         }

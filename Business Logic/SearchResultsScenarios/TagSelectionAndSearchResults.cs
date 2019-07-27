@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using System.Threading;
 
 namespace BBC_Testing_Framework.Business_Logic.SearchResultsScenarios
 {
@@ -7,26 +6,26 @@ namespace BBC_Testing_Framework.Business_Logic.SearchResultsScenarios
     {
         public TagSelectionAndSearchResults()
         {
+        }
+
+        [SetUp]
+        public void Setup()
+        {
             WebDriver.InitializeChromeDriver();
             WebDriver.IntializeBBCDriver();
         }
+
 
         [Test]
         public void TagSelectionAndSearchValidation()
         {
             NewsPage tagValue = new NewsPage();
-            SearchResultsPage validationOfTheTag = new SearchResultsPage();
-            //tag name string
-            string tempTag = tagValue.Tag.Text;
+            SearchResultsPage searchResults = new SearchResultsPage();
+            string tempTagValue = tagValue.Tag.Text;
 
+            tagValue.SelectTagAndPutItIntoTheSearchField();
+            Assert.AreEqual(searchResults.TagAndSearchResultsPairs[tempTagValue], searchResults.FirstSearchResult.Text);
 
-            //tagValidation.InsertTagIntoSearchField();
-            //string actualTag = tagValidation.ReturnTagName();
-            //validation.TagInputAndClickOnTheSearchButton();
-            Thread.Sleep(3000);
-            //Assert.AreEqual(validation.TagNameAssertion(tagValidation), validation.FirstSearchResult.Text);
-            //Assert.AreEqual(validation.TagAndSearchResultsPairs, validation.FirstSearchResult.Text);
-            //Assert.AreEqual(validation.FirstSearchResult.Text, tagValidation.ReturnTagName());
         }
 
         [TearDown]

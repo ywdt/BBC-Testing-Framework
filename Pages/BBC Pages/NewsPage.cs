@@ -26,19 +26,19 @@ namespace BBC_Testing_Framework
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-search-button\"]")]
         public IWebElement SearchButton { get; set; }
 
-        //TODO Delete this method and replace with Tag.Text?
-        public string ReturnTagName()
+        public void SelectTagAndPutItIntoTheSearchField()
         {
-            NewsPage tag = new NewsPage();
-            string tagValue = tag.Tag.Text;
-            return tagValue;
+            NewsPage tagValue = new NewsPage();
+
+            tagValue.SearchField.SendKeys(tagValue.Tag.Text);
+            tagValue.SearchButton.Click();
         }
 
-        public string InsertTagIntoSearchField()
+        public void InsertTagIntoTheSearchField(string tagValue)
         {
-            SearchField.SendKeys(ReturnTagName());
-            SearchButton.Click();
-            return Tag.Text;
+            NewsPage tag = new NewsPage();
+            tag.SearchField.SendKeys(tagValue);
+            tag.SearchButton.Click();
         }
     }
 }

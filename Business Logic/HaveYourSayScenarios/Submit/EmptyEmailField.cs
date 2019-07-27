@@ -7,6 +7,11 @@ namespace BBC_Testing_Framework.Business_Logic.HaveYourSayScenarios.Submit
     {
         public EmptyEmailField()
         {
+        }
+
+        [SetUp]
+        public void Setup()
+        {
             WebDriver.InitializeChromeDriver();
         }
 

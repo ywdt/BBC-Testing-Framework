@@ -94,6 +94,7 @@
     <Compile Include="Business Logic\HaveYourSayScenarios\Submit\EmptyEmailField.cs" />
     <Compile Include="Business Logic\HaveYourSayScenarios\Submit\EmptyNameField.cs" />
     <Compile Include="Business Logic\NewsPageScenarios\PresenceOfTheArticles.cs" />
+    <Compile Include="Business Logic\SearchResultsScenarios\InputTagFromTheDictValidatePresence.cs" />
     <Compile Include="Business Logic\SearchResultsScenarios\TagSelectionAndSearchResults.cs" />
     <Compile Include="Pages\BBC Pages\HaveYourSayPage.cs" />
     <Compile Include="WebDriver.cs" />

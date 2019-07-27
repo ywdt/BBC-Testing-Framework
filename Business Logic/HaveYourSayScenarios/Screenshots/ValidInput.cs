@@ -7,6 +7,11 @@ namespace BBC_Testing_Framework.Business_Logic.HaveYourSayScenarios.Screenshots
     {
         public ValidInput()
         {
+        }
+
+        [SetUp]
+        public void Setup()
+        {
             WebDriver.InitializeChromeDriver();
         }
 

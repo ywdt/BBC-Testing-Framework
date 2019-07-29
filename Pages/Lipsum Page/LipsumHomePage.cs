@@ -35,26 +35,5 @@ namespace BBC_Testing_Framework
             generateIpsum.AmountField.SendKeys(InputBytes);
             generateIpsum.GenerateButton.Click();
         }
-
-        //public string GenerateValidIpsum(bool validInput)
-        //{
-        //    WebDriver.IntializeIpsumDriver();
-        //    LipsumHomePage generateIpsum = new LipsumHomePage();
-
-        //    generateIpsum.BytesButton.Click();
-        //    generateIpsum.AmountField.Clear();
-        //    generateIpsum.AmountField.SendKeys(InputBytes);
-        //    generateIpsum.GenerateButton.Click();
-        //    if (validInput == true)
-        //    {
-        //        string validData = generateIpsum.GeneratedIpsum.Text.Substring(0, 140);
-        //        return validData;
-        //    }
-        //    else
-        //    {
-        //        string invalidData = generateIpsum.GeneratedIpsum.Text.Substring(0, 141);
-        //        return invalidData;
-        //    }
-        //}
     }
 }

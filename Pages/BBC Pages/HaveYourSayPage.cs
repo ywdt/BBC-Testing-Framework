@@ -88,15 +88,6 @@ namespace BBC_Testing_Framework.Pages.BBC_Pages
             }
         }
 
-        public void AgePostCheckboxSumbit()
-        {
-            AgeInputField.SendKeys(InputValues["Age"]);
-            PostCodeInputField.SendKeys(InputValues["Postcode"]);
-            CheckBoxDailyMails.Click();
-            SubmitButton.Click();
-            Thread.Sleep(1000);
-        }
-
         public void ScreenshotAndInputValidation(bool ValidInput)
         {
             LipsumHomePage ipsum = new LipsumHomePage();
@@ -116,6 +107,15 @@ namespace BBC_Testing_Framework.Pages.BBC_Pages
                 MessageInputBox.SendKeys(generatedIpsum);
                 NameEmailAgePostCheckboxInputFields(false);
             };
+        }
+
+        public void AgePostCheckboxSumbit()
+        {
+            AgeInputField.SendKeys(InputValues["Age"]);
+            PostCodeInputField.SendKeys(InputValues["Postcode"]);
+            CheckBoxDailyMails.Click();
+            SubmitButton.Click();
+            Thread.Sleep(1000);
         }
 
         public void EmptyNameAndEmailField(bool emptyNameField)

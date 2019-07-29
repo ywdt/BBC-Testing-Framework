@@ -14,25 +14,26 @@ namespace BBC_Testing_Framework.Business_Logic.HaveYourSayScenarios.Screenshots
         {
             WebDriver.InitializeChromeDriver();
         }
-        //TODO Assertion doesn't work. Couldn't store a value of lipsum to compare.
+
         [Test]
         public void ValidInputAndScreenshot()
         {
             HaveYourSayPage validation = new HaveYourSayPage();
 
             validation.ScreenshotAndInputValidation(true);
-            //Assert.AreEqual(tempLipsum, validation.MessageInputBox.Text);
+            Assert.IsTrue(validation.MessageInputBox.GetAttribute("value").Length == 140);
         }
-        //TODO Assertion doesn't work. NameInputField: but string.Empty instead of JohnBrick.
+
         [Test]
         public void InvalidInputAndScreenshot()
         {
             HaveYourSayPage validation = new HaveYourSayPage();
             validation.ScreenshotAndInputValidation(false);
-            Assert.AreEqual(validation.InputValues["FirstName"], validation.NameInputField.Text);
-            Assert.AreEqual(validation.InputValues["Email"], validation.EmailInputField.Text);
-            Assert.AreEqual(validation.InputValues["Age"], validation.AgeInputField.Text);
-            Assert.AreEqual(validation.InputValues["Postcode"], validation.PostCodeInputField.Text);
+
+            Assert.AreEqual(validation.InputValues["FirstName"], validation.NameInputField.GetAttribute("value"));
+            Assert.AreEqual(validation.InputValues["Email"], validation.EmailInputField.GetAttribute("value"));
+            Assert.AreEqual(validation.InputValues["Age"], validation.AgeInputField.GetAttribute("value"));
+            Assert.AreEqual(validation.InputValues["Postcode"], validation.PostCodeInputField.GetAttribute("value"));
         }
 
         [TearDown]

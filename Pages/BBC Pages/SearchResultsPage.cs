@@ -6,6 +6,14 @@ namespace BBC_Testing_Framework
 {
     class SearchResultsPage
     {
+        public SearchResultsPage()
+        {
+            PageFactory.InitElements(WebDriver.Driver, this);
+        }
+
+        [FindsBy(How = How.XPath, Using = "//*[@class=\"editors-choice results\"]//h1")]
+        internal IWebElement FirstSearchResult { get; set; }
+
         public Dictionary<string, string> TagAndSearchResultsPairs = new Dictionary<string, string>()
         {
             ["UK Politics"] = "Politics",
@@ -15,13 +23,5 @@ namespace BBC_Testing_Framework
             ["Asia"] = "Asia",
             ["China"] = "China"
         };
-
-        public SearchResultsPage()
-        {
-            PageFactory.InitElements(WebDriver.Driver, this);
-        }
-
-        [FindsBy(How = How.XPath, Using = "//*[@class=\"editors-choice results\"]//h1")]
-        public IWebElement FirstSearchResult { get; set; }
     }
 }

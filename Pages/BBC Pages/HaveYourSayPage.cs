@@ -23,41 +23,41 @@ namespace BBC_Testing_Framework.Pages.BBC_Pages
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-modules\"]//span[text()=\"More\"]")]
-        public IWebElement MoreButton { get; set; }
+        private IWebElement MoreButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-modules\"]//div[2]//span[text()=\"Have Your Say\"]")]
-        public IWebElement HaveYourSayLink { get; set; }
+        private IWebElement HaveYourSayLink { get; set; }
 
         //TODO Remake the QuestionLink Xpath
         [FindsBy(How = How.XPath, Using = "//*[@id=\"topos-component\"]/div[4]/div/div[1]/div/div[1]/div/div[2]/div[1]/a")]
-        public IWebElement QuestionLink { get; set; }
+        private IWebElement QuestionLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@class=\"long-text-input-container\"]/textarea")]
-        public IWebElement MessageInputBox { get; set; }
+        internal IWebElement MessageInputBox { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//input[@placeholder=\"Name\"]")]
-        public IWebElement NameInputField { get; set; }
+        internal IWebElement NameInputField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//input[@placeholder=\"Email address\"]")]
-        public IWebElement EmailInputField { get; set; }
+        internal IWebElement EmailInputField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//input[@placeholder=\"Age\"]")]
-        public IWebElement AgeInputField { get; set; }
+        internal IWebElement AgeInputField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//input[@placeholder=\"Postcode\"]")]
-        public IWebElement PostCodeInputField { get; set; }
+        internal IWebElement PostCodeInputField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//div[@class=\"checkbox\"][1]//input[@type = \"checkbox\"]")]
-        public IWebElement CheckBoxDailyMails { get; set; }
+        private IWebElement CheckBoxDailyMails { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//div[@class=\"button-container\"]")]
-        public IWebElement SubmitButton { get; set; }
+        private IWebElement SubmitButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//div[@class=\"input-error-message\"][text()=\"Name can't be blank\"]")]
-        public IWebElement BlankNameErrorMessage { get; set; }
+        internal IWebElement BlankNameErrorMessage { get; set; }
 
         [FindsBy(How = How.XPath, Using = "*//div[@class=\"input-error-message\"][text()=\"Email address can't be blank\"]")]
-        public IWebElement BlankEmailErrorMessage { get; set; }
+        internal IWebElement BlankEmailErrorMessage { get; set; }
 
         public void NavigateToTextForm()
         {

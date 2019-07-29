@@ -11,20 +11,21 @@ namespace BBC_Testing_Framework
         }
 
         [FindsBy(How = How.XPath, Using = "//div[@data-entityid=\"container-top-stories#1\"]")]
-        public IWebElement FirstTopStoryPresence { get; set; }
+        internal IWebElement FirstTopStoryPresence { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//div[@data-entityid=\"container-top-stories#2\"]")]
-        public IWebElement SecondTopStoryPresence { get; set; }
+        internal IWebElement SecondTopStoryPresence { get; set; }
 
+        //TODO Fix Xpath
         //[FindsBy(How = How.XPath, Using = "*//div[@data-entityid=\"container-top-stories#1\"]//a[@aria-label]")]
         [FindsBy(How = How.XPath, Using = "*//div/div/div/div[1]/div/div/div[1]/ul/li[2]/a/span")]
-        public IWebElement Tag { get; set; }
+        internal IWebElement Tag { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-search-q\"]")]
-        public IWebElement SearchField { get; set; }
+        private IWebElement SearchField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-search-button\"]")]
-        public IWebElement SearchButton { get; set; }
+        private IWebElement SearchButton { get; set; }
 
         public void SelectTagAndPutItIntoTheSearchField()
         {

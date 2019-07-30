@@ -115,7 +115,6 @@ namespace BBC_Testing_Framework.Pages.BBC_Pages
             PostCodeInputField.SendKeys(InputValues["Postcode"]);
             CheckBoxDailyMails.Click();
             SubmitButton.Click();
-            Thread.Sleep(1000);
         }
 
         public void EmptyNameAndEmailField(bool emptyNameField)

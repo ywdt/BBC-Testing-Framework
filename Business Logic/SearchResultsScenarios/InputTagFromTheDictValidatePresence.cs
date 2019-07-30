@@ -67,7 +67,7 @@ namespace BBC_Testing_Framework.Business_Logic.SearchResultsScenarios
             Assert.AreEqual(tagName.TagAndSearchResultsPairs["Asia"], tagName.FirstSearchResult.Text);
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void DriverQuit()
         {
             WebDriver.DriverQuit();

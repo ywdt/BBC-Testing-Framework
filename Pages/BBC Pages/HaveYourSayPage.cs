@@ -28,7 +28,6 @@ namespace BBC_Testing_Framework.Pages.BBC_Pages
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-modules\"]//div[2]//span[text()=\"Have Your Say\"]")]
         private IWebElement HaveYourSayLink { get; set; }
 
-        //TODO Remake the QuestionLink Xpath
         [FindsBy(How = How.XPath, Using = "//*[@id=\"topos-component\"]/div[4]/div/div[1]/div/div[1]/div/div[2]/div[1]/a")]
         private IWebElement QuestionLink { get; set; }
 

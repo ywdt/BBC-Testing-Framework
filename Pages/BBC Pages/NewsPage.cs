@@ -16,16 +16,14 @@ namespace BBC_Testing_Framework
         [FindsBy(How = How.XPath, Using = "//div[@data-entityid=\"container-top-stories#2\"]")]
         internal IWebElement SecondTopStoryPresence { get; set; }
 
-        //TODO Fix Xpath
-        //[FindsBy(How = How.XPath, Using = "*//div[@data-entityid=\"container-top-stories#1\"]//a[@aria-label]")]
         [FindsBy(How = How.XPath, Using = "*//div/div/div/div[1]/div/div/div[1]/ul/li[2]/a/span")]
         internal IWebElement Tag { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-search-q\"]")]
-        private IWebElement SearchField { get; set; }
+        internal IWebElement SearchField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-search-button\"]")]
-        private IWebElement SearchButton { get; set; }
+        internal IWebElement SearchButton { get; set; }
 
         public void SelectTagAndPutItIntoTheSearchField()
         {

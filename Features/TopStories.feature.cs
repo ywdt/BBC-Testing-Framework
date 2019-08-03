@@ -18,21 +18,21 @@ namespace BBC_Testing_Framework.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Top Articles And Tags")]
-    public partial class TopArticlesAndTagsFeature
+    [NUnit.Framework.DescriptionAttribute("TopStories")]
+    public partial class TopStoriesFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Top Articles And Tags.feature"
+#line 1 "TopStories.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Top Articles And Tags", "\tIn order to ensure that tags and top stories are shown correctly\r\n\tAs test engin" +
-                    "eer\r\n\tI want to validate the presence of the top stories and tag searches", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TopStories", "\tIn order to ensure that top stories are shown correctly\r\n\tAs test engineer\r\n\tI w" +
+                    "ant to validate that top stories are present on the page", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,54 +74,42 @@ namespace BBC_Testing_Framework.Features
         {
 #line 6
 #line 7
- testRunner.Given("I have opened the bbc.com/news web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have opened bbc.com/news web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Top story tag search validation")]
-        public virtual void TopStoryTagSearchValidation()
+        [NUnit.Framework.DescriptionAttribute("Presence of the Top Story")]
+        public virtual void PresenceOfTheTopStory()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Top story tag search validation", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Presence of the Top Story", null, ((string[])(null)));
 #line 9
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
 #line 10
- testRunner.When("I copy the tag from the top story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("News page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.And("I paste that tag into the search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.When("I click on the search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
- testRunner.Then("the first search result should match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the top story should be present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Validation of the search results")]
-        [NUnit.Framework.TestCaseAttribute("UK Politics", "Politics", null)]
-        [NUnit.Framework.TestCaseAttribute("UK", "UK News", null)]
-        [NUnit.Framework.TestCaseAttribute("Europe", "Europe", null)]
-        [NUnit.Framework.TestCaseAttribute("US & Canada", "US & Canada", null)]
-        [NUnit.Framework.TestCaseAttribute("Asia", "Asia", null)]
-        [NUnit.Framework.TestCaseAttribute("China", "China", null)]
-        public virtual void ValidationOfTheSearchResults(string tag, string firstSearchResult, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Presence of the Second Top Story")]
+        public virtual void PresenceOfTheSecondTopStory()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validation of the search results", null, exampleTags);
-#line 15
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Presence of the Second Top Story", null, ((string[])(null)));
+#line 13
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
-#line 16
- testRunner.When(string.Format("I have entered \'{0}\' as search keyword", tag), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
- testRunner.And("I press the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
- testRunner.Then(string.Format("the \'{0}\' should correspond with the \'{1}\'", firstSearchResult, tag), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 14
+ testRunner.When("News page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
+ testRunner.Then("the second top story should be present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

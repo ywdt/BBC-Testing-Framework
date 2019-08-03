@@ -13,6 +13,6 @@ namespace BBC_Testing_Framework
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-nav-links\"]//a[text() = \"News\"]")]
-        internal IWebElement HomePageHeader { get; set; }
+        internal IWebElement NewsTab { get; set; }
     }
 }

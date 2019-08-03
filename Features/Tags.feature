@@ -1,7 +1,7 @@
 ﻿Feature: Tags
-	In order to ensure that tags and top stories are shown correctly
+	In order to ensure that tags are shown correctly
 	As test engineer
-	I want to validate the presence of the top stories and tag searches
+	I want to validate the compare the search results with corresponding tags
 
 Background:
 	Given I have opened the bbc.com/news web page

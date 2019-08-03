@@ -57,6 +57,9 @@
     <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -94,10 +97,10 @@
   <ItemGroup>
     <Compile Include="Business Logic\HaveYourSayScenarios\Screenshots\MessageBox.cs" />
     <Compile Include="Business Logic\HaveYourSayScenarios\Submit\InputFields.cs" />
-    <Compile Include="Business Logic\NewsPageScenarios\PresenceOfTheArticles.cs" />
     <Compile Include="Hooks\GeneralHooks.cs" />
     <Compile Include="Pages\BBC Pages\HaveYourSayPage.cs" />
     <Compile Include="Steps\TagsSteps.cs" />
+    <Compile Include="Steps\TopStoriesSteps.cs" />
     <Compile Include="WebDriver.cs" />
     <Compile Include="Pages\BBC Pages\HomePage.cs" />
     <Compile Include="Pages\Lipsum Page\LipsumHomePage.cs" />
@@ -109,6 +112,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Features\Tags.feature" />
+    <None Include="Features\TopStories.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

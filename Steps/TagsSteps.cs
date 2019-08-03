@@ -5,12 +5,13 @@ namespace BBC_Testing_Framework.Steps
 {
     [Binding]
 
-    public class TagsSteps
+    public sealed class TagsSteps
     {
-        //Disabled "ScenarioContext is obsolete" warning message.
-#pragma warning disable 0618
-        public TagsSteps()
+        private readonly ScenarioContext context;
+
+        public TagsSteps(ScenarioContext injectedContext)
         {
+            context = injectedContext;
         }
         NewsPage newsPage = new NewsPage();
         SearchResultsPage searchResults = new SearchResultsPage();
@@ -24,13 +25,13 @@ namespace BBC_Testing_Framework.Steps
         [When(@"I copy the tag from the top story")]
         public void WhenICopyTheTagFromTheTopStory()
         {
-            ScenarioContext.Current["tempTag"] = newsPage.Tag.Text;
+            context["tempTag"] = newsPage.Tag.Text;
         }
 
         [When(@"I paste that tag into the search field")]
         public void IPasteThatTagIntoTheSearchField()
         {
-            newsPage.SearchField.SendKeys(ScenarioContext.Current["tempTag"].ToString());
+            newsPage.SearchField.SendKeys(context["tempTag"].ToString());
         }
 
         [When(@"I click on the search")]
@@ -42,7 +43,7 @@ namespace BBC_Testing_Framework.Steps
         [Then(@"the first search result should match")]
         public void ThenTheFirstSearchResultShouldMatch()
         {
-            Assert.AreEqual(searchResults.TagAndSearchResultsPairs[ScenarioContext.Current["tempTag"].ToString()], searchResults.FirstSearchResult.Text);
+            Assert.AreEqual(searchResults.TagAndSearchResultsPairs[context["tempTag"].ToString()], searchResults.FirstSearchResult.Text);
         }
 
         //"Validation of the search results" scenario

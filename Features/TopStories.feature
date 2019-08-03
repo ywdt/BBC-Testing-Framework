@@ -6,10 +6,11 @@
 Background:
 	Given I have opened bbc.com/news web page
 
-Scenario: Presence of the Top Story
+Scenario Outline: Presence of the Top Story
 	When News page is opened
-	Then the top story should be present
+	Then the '<top story>' should be present
 
-Scenario: Presence of the Second Top Story
-	When News page is opened
-	Then the second top story should be present
+	Examples:
+		| Top Story number | top story                                       |
+		| Top Story #1     | //div[@data-entityid="container-top-stories#1"] |
+		| Top Story #2     | //div[@data-entityid="container-top-stories#2"] |

@@ -24,20 +24,5 @@ namespace BBC_Testing_Framework
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-search-button\"]")]
         internal IWebElement SearchButton { get; set; }
-
-        public void SelectTagAndPutItIntoTheSearchField()
-        {
-            NewsPage tagValue = new NewsPage();
-
-            tagValue.SearchField.SendKeys(tagValue.Tag.Text);
-            tagValue.SearchButton.Click();
-        }
-
-        public void InsertTagIntoTheSearchField(string tagValue)
-        {
-            NewsPage tag = new NewsPage();
-            tag.SearchField.SendKeys(tagValue);
-            tag.SearchButton.Click();
-        }
     }
 }

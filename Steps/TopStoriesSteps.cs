@@ -9,12 +9,8 @@ namespace BBC_Testing_Framework.Steps
     [Binding]
     public sealed class TopStoriesSteps
     {
-        private readonly ScenarioContext context;
-        NewsPage newsPage = new NewsPage();
-
-        public TopStoriesSteps(ScenarioContext injectedContext)
+        public TopStoriesSteps()
         {
-            context = injectedContext;
         }
 
         [Given(@"I have opened bbc\.com/news web page")]
@@ -26,21 +22,15 @@ namespace BBC_Testing_Framework.Steps
         [When(@"News page is opened")]
         public void WhenNewsPageIsOpened()
         {
-            //OpenQA.Selenium.Support.UI.WebDriverWait wait = new OpenQA.Selenium.Support.UI.WebDriverWait(WebDriver.Driver, TimeSpan.FromSeconds(3));
-            //wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@data-entityid=\"container-top-stories#1\"]")));
+            OpenQA.Selenium.Support.UI.WebDriverWait wait = new OpenQA.Selenium.Support.UI.WebDriverWait(WebDriver.Driver, TimeSpan.FromSeconds(3));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"responsive-news\"]/body")));
         }
 
-        [Then(@"the top story should be present")]
-        public void ThenTheTopStoryShouldBePresent()
+        [Then(@"the '(.*)' should be present")]
+        public void ThenTheShouldBePresent(string storyXpath)
         {
-            Assert.IsTrue(newsPage.FirstTopStoryPresence.Displayed);
+            var xPath = WebDriver.Driver.FindElement(By.XPath(storyXpath));
+            Assert.IsTrue(xPath.Displayed);
         }
-
-        [Then(@"the second top story should be present")]
-        public void ThenTheSecondTopStoryShouldBePresent()
-        {
-            Assert.IsTrue(newsPage.SecondTopStoryPresence.Displayed);
-        }
-
     }
 }

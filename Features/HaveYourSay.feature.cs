@@ -18,21 +18,21 @@ namespace BBC_Testing_Framework.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("TopStories")]
-    public partial class TopStoriesFeature
+    [NUnit.Framework.DescriptionAttribute("HaveYourSay")]
+    public partial class HaveYourSayFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "TopStories.feature"
+#line 1 "HaveYourSay.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TopStories", "\tIn order to ensure that top stories are shown correctly\r\n\tAs test engineer\r\n\tI w" +
-                    "ant to validate that top stories are present on the page", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HaveYourSay", "\tIn order to ensure that Have Your Say input box is in working state\r\n\tAs test en" +
+                    "gineer\r\n\tI want to validate different input combinations", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,26 +74,32 @@ namespace BBC_Testing_Framework.Features
         {
 #line 6
 #line 7
- testRunner.Given("I have opened bbc.com/news web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have opened the bbc.com/news web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Presence of the Top Story")]
-        [NUnit.Framework.TestCaseAttribute("Top Story #1", "//div[@data-entityid=\"container-top-stories#1\"]", null)]
-        [NUnit.Framework.TestCaseAttribute("Top Story #2", "//div[@data-entityid=\"container-top-stories#2\"]", null)]
-        public virtual void PresenceOfTheTopStory(string topStoryNumber, string topStory, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Valid input and screenshot")]
+        public virtual void ValidInputAndScreenshot()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Presence of the Top Story", null, exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valid input and screenshot", null, ((string[])(null)));
 #line 9
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
 this.FeatureBackground();
 #line 10
- testRunner.When("News page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on More", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then(string.Format("the \'{0}\' should be present", topStory), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I click on HaveYourSay", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("I click on question link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.When("input box is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.And("I have filled all needed fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+ testRunner.Then("the text in message box should have 140 symbols", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

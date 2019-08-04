@@ -33,7 +33,6 @@ namespace BBC_Testing_Framework.Steps
             context["generatedIpsum"] = generateIpsum.GeneratedIpsum.Text;
         }
 
-        //TODO https://specflow.org/documentation/Context-Injection/
         HaveYourSayPage sayPage = new HaveYourSayPage();
 
         [When(@"I click on More")]
@@ -54,7 +53,7 @@ namespace BBC_Testing_Framework.Steps
             sayPage.QuestionLink.Click();
         }
 
-        [When(@"have your say page is opened")]
+        [When(@"Have Your Say page is opened")]
         public void WhenHaveYourSayPageIsOpened()
         {
             OpenQA.Selenium.Support.UI.WebDriverWait wait = new OpenQA.Selenium.Support.UI.WebDriverWait(WebDriver.Driver, TimeSpan.FromSeconds(3));
@@ -77,7 +76,6 @@ namespace BBC_Testing_Framework.Steps
         [When(@"I filled other input fields")]
         public void WhenIFilledOtherInputFields()
         {
-            //TODO https://specflow.org/documentation/FeatureContext/
             sayPage.NameInputField.SendKeys(sayPage.InputValues["FirstName"]);
             sayPage.EmailInputField.SendKeys(sayPage.InputValues["Email"]);
             sayPage.AgeInputField.SendKeys(sayPage.InputValues["Age"]);

@@ -1,7 +1,7 @@
 ﻿Feature: TopStories
-	In order to ensure that top stories are shown correctly
-	As test engineer
-	I want to validate that top stories are present on the page
+	In order to ensure that the top stories are shown correctly
+	As a test engineer
+	I want to validate that the top stories are present on the page
 
 Background:
 	Given I have opened bbc.com/news web page

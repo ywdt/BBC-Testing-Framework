@@ -1,6 +1,6 @@
 ﻿Feature: HaveYourSay
 	In order to ensure that Have Your Say input box is in working state
-	As test engineer
+	As a test engineer
 	I want to validate different input combinations
 
 Background:
@@ -10,7 +10,7 @@ Scenario Outline: Message box validation and screenshots
 	When I click on More
 	And I click on HaveYourSay
 	And I click on question link
-	When have your say page is opened
+	When Have Your Say page is opened
 	And Message input box is filled with the '<Input Data>'
 	And I filled other input fields
 	And checked that I signed up for daily news
@@ -26,7 +26,7 @@ Scenario Outline: Error messages validation
 	When I click on More
 	And I click on HaveYourSay
 	And I click on question link
-	When have your say page is opened
+	When Have Your Say page is opened
 	When I leave given '<Empty Input Field>'
 	And fill the other input fields
 	And click Submit button

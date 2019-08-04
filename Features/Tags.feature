@@ -1,7 +1,7 @@
 ﻿Feature: Tags
 	In order to ensure that tags are shown correctly
-	As test engineer
-	I want to validate the compare the search results with corresponding tags
+	As a test engineer
+	I want to validate the search results with the corresponding tags
 
 Background:
 	Given I have opened the bbc.com/news web page

@@ -15,7 +15,7 @@ namespace BBC_Testing_Framework.Steps
         }
         NewsPage newsPage = new NewsPage();
         SearchResultsPage searchResults = new SearchResultsPage();
-        //TODO Consider remake it as mentioned in this article: https://cucumber.io/docs/gherkin/step-organization/
+
         [Given(@"I have opened the bbc\.com/news web page")]
         public void GivenIHaveOpenedTheBbc_ComNewsWebPage()
         {

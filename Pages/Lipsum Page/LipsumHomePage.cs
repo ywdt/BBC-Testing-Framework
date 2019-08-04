@@ -24,16 +24,5 @@ namespace BBC_Testing_Framework
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"lipsum\"]")]
         internal IWebElement GeneratedIpsum { get; set; }
-
-        public void GenerateIpsumSteps()
-        {
-            WebDriver.IntializeIpsumDriver();
-            LipsumHomePage generateIpsum = new LipsumHomePage();
-
-            generateIpsum.BytesButton.Click();
-            generateIpsum.AmountField.Clear();
-            generateIpsum.AmountField.SendKeys(InputBytes);
-            generateIpsum.GenerateButton.Click();
-        }
     }
 }

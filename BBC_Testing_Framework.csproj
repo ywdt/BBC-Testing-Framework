@@ -95,8 +95,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business Logic\HaveYourSayScenarios\Screenshots\MessageBox.cs" />
-    <Compile Include="Business Logic\HaveYourSayScenarios\Submit\InputFields.cs" />
     <Compile Include="Hooks\GeneralHooks.cs" />
     <Compile Include="Pages\BBC Pages\HaveYourSayPage.cs" />
     <Compile Include="Steps\HaveYourSaySteps.cs" />

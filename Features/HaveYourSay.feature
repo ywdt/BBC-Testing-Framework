@@ -21,3 +21,18 @@ Scenario Outline: Message box validation and screenshots
 		| Input Data    | Values | Screenshot             |
 		| Valid Input   | 140    | ValidInputScreenshot   |
 		| Invalid Input | 141    | InvalidInputScreenshot |
+
+Scenario Outline: Error messages validation
+	When I click on More
+	And I click on HaveYourSay
+	And I click on question link
+	When have your say page is opened
+	When I leave given '<Empty Input Field>'
+	And fill the other input fields
+	And click Submit button
+	Then '<Error Message>' is shown
+
+	Examples:
+		| Empty Input Field | Error Message                |
+		| Name              | Name can't be blank          |
+		| Email             | Email address can't be blank |

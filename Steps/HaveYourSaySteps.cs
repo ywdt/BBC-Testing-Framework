@@ -33,7 +33,7 @@ namespace BBC_Testing_Framework.Steps
             context["generatedIpsum"] = generateIpsum.GeneratedIpsum.Text;
         }
 
-        HaveYourSayPage sayPage = new HaveYourSayPage();
+        readonly HaveYourSayPage sayPage = new HaveYourSayPage();
 
         [When(@"I click on More")]
         public void WhenIClickOnMore()

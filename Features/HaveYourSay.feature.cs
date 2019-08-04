@@ -31,8 +31,8 @@ namespace BBC_Testing_Framework.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HaveYourSay", "\tIn order to ensure that Have Your Say input box is in working state\r\n\tAs test en" +
-                    "gineer\r\n\tI want to validate different input combinations", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "HaveYourSay", "\tIn order to ensure that Have Your Say input box is in working state\r\n\tAs a test " +
+                    "engineer\r\n\tI want to validate different input combinations", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -97,7 +97,7 @@ this.FeatureBackground();
 #line 12
  testRunner.And("I click on question link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.When("have your say page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Have Your Say page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
  testRunner.And(string.Format("Message input box is filled with the \'{0}\'", inputData), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
@@ -131,7 +131,7 @@ this.FeatureBackground();
 #line 28
  testRunner.And("I click on question link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
- testRunner.When("have your say page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Have Your Say page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
  testRunner.When(string.Format("I leave given \'{0}\'", emptyInputField), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 31

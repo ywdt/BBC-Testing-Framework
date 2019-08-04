@@ -13,8 +13,9 @@ namespace BBC_Testing_Framework.Steps
         {
             context = injectedContext;
         }
-        NewsPage newsPage = new NewsPage();
-        SearchResultsPage searchResults = new SearchResultsPage();
+
+        readonly NewsPage newsPage = new NewsPage();
+        readonly SearchResultsPage searchResults = new SearchResultsPage();
 
         [Given(@"I have opened the bbc\.com/news web page")]
         public void GivenIHaveOpenedTheBbc_ComNewsWebPage()
@@ -57,8 +58,8 @@ namespace BBC_Testing_Framework.Steps
         {
             newsPage.SearchButton.Click();
         }
-        [Then(@"the '(.*)' should correspond with the '(.*)'")]
-        public void ThenTheShouldCorrespondWithThe(string searchResult, string tag)
+        [Then(@"the '(.*)' should correspond with the Tag")]
+        public void ThenTheShouldCorrespondWithThe(string searchResult)
         {
             Assert.AreEqual(searchResult, searchResults.FirstSearchResult.Text);
         }

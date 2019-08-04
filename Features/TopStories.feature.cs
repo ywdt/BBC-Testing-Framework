@@ -31,8 +31,8 @@ namespace BBC_Testing_Framework.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TopStories", "\tIn order to ensure that top stories are shown correctly\r\n\tAs test engineer\r\n\tI w" +
-                    "ant to validate that top stories are present on the page", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TopStories", "\tIn order to ensure that the top stories are shown correctly\r\n\tAs a test engineer" +
+                    "\r\n\tI want to validate that the top stories are present on the page", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

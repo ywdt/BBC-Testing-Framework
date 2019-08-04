@@ -31,8 +31,8 @@ namespace BBC_Testing_Framework.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Tags", "\tIn order to ensure that tags are shown correctly\r\n\tAs test engineer\r\n\tI want to " +
-                    "validate the compare the search results with corresponding tags", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Tags", "\tIn order to ensure that tags are shown correctly\r\n\tAs a test engineer\r\n\tI want t" +
+                    "o validate the search results with the corresponding tags", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -121,7 +121,7 @@ this.FeatureBackground();
 #line 17
  testRunner.And("I press the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
- testRunner.Then(string.Format("the \'{0}\' should correspond with the \'{1}\'", firstSearchResult, tag), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the \'{0}\' should correspond with the Tag", firstSearchResult), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

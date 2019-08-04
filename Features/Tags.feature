@@ -15,7 +15,7 @@ Scenario: Top story tag search validation
 Scenario Outline: Validation of the search results
 	When I have entered '<Tag>' as search keyword
 	And I press the search button
-	Then the '<First Search Result>' should correspond with the '<Tag>'
+	Then the '<First Search Result>' should correspond with the Tag
 
 	Examples:
 		| Tag         | First Search Result |

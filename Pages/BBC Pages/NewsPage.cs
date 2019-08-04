@@ -16,7 +16,7 @@ namespace BBC_Testing_Framework
         [FindsBy(How = How.XPath, Using = "//div[@data-entityid=\"container-top-stories#2\"]")]
         internal IWebElement SecondTopStoryPresence { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "*//div/div/div/div[1]/div/div/div[1]/ul/li[2]/a/span")]
+        [FindsBy(How = How.XPath, Using = "*//div/div/div/div[1]/div/div/div[1]/ul/li/a/span")]
         internal IWebElement Tag { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"orb-search-q\"]")]

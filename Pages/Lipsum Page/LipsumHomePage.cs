@@ -14,13 +14,13 @@ namespace BBC_Testing_Framework
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"bytes\"]")]
-        private IWebElement BytesButton { get; set; }
+        internal IWebElement BytesButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"amount\"]")]
-        private IWebElement AmountField { get; set; }
+        internal IWebElement AmountField { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"generate\"]")]
-        private IWebElement GenerateButton { get; set; }
+        internal IWebElement GenerateButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"lipsum\"]")]
         internal IWebElement GeneratedIpsum { get; set; }

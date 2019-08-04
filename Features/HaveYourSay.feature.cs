@@ -79,10 +79,12 @@ namespace BBC_Testing_Framework.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Valid input and screenshot")]
-        public virtual void ValidInputAndScreenshot()
+        [NUnit.Framework.DescriptionAttribute("Message box validation and screenshots")]
+        [NUnit.Framework.TestCaseAttribute("Valid Input", "140", "ValidInputScreenshot", null)]
+        [NUnit.Framework.TestCaseAttribute("Invalid Input", "141", "InvalidInputScreenshot", null)]
+        public virtual void MessageBoxValidationAndScreenshots(string inputData, string values, string screenshot, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valid input and screenshot", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Message box validation and screenshots", null, exampleTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
@@ -95,11 +97,17 @@ this.FeatureBackground();
 #line 12
  testRunner.And("I click on question link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.When("input box is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("have your say page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
- testRunner.And("I have filled all needed fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("Message input box is filled with the \'{0}\'", inputData), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
- testRunner.Then("the text in message box should have 140 symbols", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I filled other input fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.And("checked that I signed up for daily news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.Then(string.Format("the length of the message input box should equals \'{0}\'", values), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 18
+ testRunner.And(string.Format("\'{0}\' is taken", screenshot), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

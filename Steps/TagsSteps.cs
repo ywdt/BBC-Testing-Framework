@@ -46,7 +46,6 @@ namespace BBC_Testing_Framework.Steps
             Assert.AreEqual(searchResults.TagAndSearchResultsPairs[context["tempTag"].ToString()], searchResults.FirstSearchResult.Text);
         }
 
-        //"Validation of the search results" scenario
         [When(@"I have entered '(.*)' as search keyword")]
         public void GivenIHaveEnteredAsSearchKeyword(string tag)
         {

@@ -1,3 +1,2 @@
-# Testing-Framework
-Work in progress.
-This is a learning project.
+# C# + Selenium behavior-driven testing framework.
+This was a learning project.
